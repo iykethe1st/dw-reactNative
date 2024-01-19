@@ -80,7 +80,7 @@ const Carousel = () => {
   });
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Carousel</Text>
       <FlatList
         ref={flatListRef}
@@ -91,6 +91,7 @@ const Carousel = () => {
         horizontal
         pagingEnabled
         onScroll={handleScroll}
+        style={styles.flatlist}
       />
       <View style={styles.dotWrapper}>{renderDotIndicators()}</View>
     </View>
@@ -98,6 +99,10 @@ const Carousel = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
   image: {
     height: 200,
     width: screenWidth,
@@ -118,6 +123,10 @@ const styles = StyleSheet.create({
   },
   inactive: {
     backgroundColor: "#11BFBF",
+  },
+  flatlist: {
+    width: (screenWidth * 8) / 9,
+    borderRadius: 8,
   },
 });
 
