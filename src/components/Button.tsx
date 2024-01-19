@@ -34,9 +34,9 @@ const Button: React.FC<ButtonProps> = ({ label, theme, type }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
+    marginVertical: 8,
   },
   button: {
     backgroundColor: "#37D9F0",
