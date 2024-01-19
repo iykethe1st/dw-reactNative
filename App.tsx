@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
-import Button from "./src/components/buttons/Button";
+import Button from "./src/components/Button";
 
 export default function App() {
   return (
