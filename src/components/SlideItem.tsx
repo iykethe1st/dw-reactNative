@@ -49,10 +49,10 @@ export default SlideItem;
 const styles = StyleSheet.create({
   container: {
     width: width,
-    height: height,
+    // height: height,
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
+    // flex: 1,
   },
   image: {
     flex: 0.4,

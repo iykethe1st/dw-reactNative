@@ -9,6 +9,7 @@ import {
 import React, { useRef, useState } from "react";
 import SlideItem from "./SlideItem";
 import Pagination from "./Pagination";
+import Button from "./Button";
 
 const Slider = ({ slides }) => {
   const [index, setIndex] = useState(0);
@@ -41,23 +42,34 @@ const Slider = ({ slides }) => {
   }).current;
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
-        // ref={scrollX}
         horizontal
         pagingEnabled
         snapToAlignment="center"
         onScroll={handleScroll}
         onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={handleViewabilityConfig}
+        showsHorizontalScrollIndicator={false}
         data={slides}
         renderItem={({ item }) => <SlideItem item={item} />}
       />
+
       <Pagination data={slides} scrollX={scrollX} currentIndex={index} />
+
+      <Button
+        label={index === slides.length - 1 ? "Get started" : "Next"}
+        theme="dark"
+        type="large"
+      />
     </View>
   );
 };
 
 export default Slider;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
