@@ -1,6 +1,5 @@
 import { StyleSheet, SafeAreaView } from "react-native";
 import React from "react";
-import Button from "./src/components/Button";
 
 import List from "./src/components/List";
 import Card from "./src/components/Card";

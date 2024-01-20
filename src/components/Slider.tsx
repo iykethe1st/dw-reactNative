@@ -1,21 +1,26 @@
 import {
   Animated,
   FlatList,
-  SafeAreaView,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
   StyleSheet,
-  Text,
   View,
 } from "react-native";
 import React, { useRef, useState } from "react";
 import SlideItem from "./SlideItem";
 import Pagination from "./Pagination";
 import Button from "./Button";
+import { OnBoard } from "../types";
 
-const Slider = ({ slides }) => {
+interface SliderProps {
+  slides: OnBoard[];
+}
+
+const Slider: React.FC<SliderProps> = ({ slides }) => {
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
 
-  const handleScroll = (event) => {
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     Animated.event(
       [
         {
@@ -32,8 +37,7 @@ const Slider = ({ slides }) => {
     )(event);
   };
 
-  const handleOnViewableItemsChanged = useRef(({ viewableItems }) =>
-    // console.log("viewableItems", viewableItems)
+  const handleOnViewableItemsChanged = useRef(({ viewableItems }: any) =>
     setIndex(viewableItems[0].index)
   ).current;
 
