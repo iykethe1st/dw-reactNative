@@ -2,6 +2,8 @@ import {
   Dimensions,
   FlatList,
   Image,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
   StyleSheet,
   Text,
   View,
@@ -38,7 +40,7 @@ const Carousel = () => {
     );
   };
 
-  const handleScroll = (event) => {
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const scrollPosition = event.nativeEvent.contentOffset.x;
 
     const index = scrollPosition / screenWidth;
@@ -102,6 +104,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
+    // overflow: "hidden",
   },
   image: {
     height: 200,
@@ -125,8 +128,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#11BFBF",
   },
   flatlist: {
-    width: (screenWidth * 8) / 9,
     borderRadius: 8,
+    borderColor: "black",
+    // borderWidth: 10,
+    overflow: "hidden",
+    padding: 20,
+    // width: 450,
   },
 });
 

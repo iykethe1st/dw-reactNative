@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import List from "./src/components/List";
 import Card from "./src/components/Card";
 import Carousel from "./src/components/Carousel";
+import Slider from "./src/components/Slider";
 
 export default function App() {
   // const imageUrl = require("./assets/images/washing-maching.png");
@@ -13,7 +14,8 @@ export default function App() {
       {/* <Button label="Continue" theme="light" type="large" /> */}
       {/* <List theme="light" large /> */}
       {/* <Card icon="iron" label="Iron" description="Get your sleekness on" /> */}
-      <Carousel />
+      {/* <Carousel /> */}
+      <Slider />
     </SafeAreaView>
   );
 }
