@@ -17,7 +17,7 @@ export default [
     img: require("../../assets/images/laundryman.png"),
     title: "Professional Wash",
     description:
-      "Our expert team will ensure your clothes are cleaned to perfection",
+      "Our team of laundry experts will ensure your clothes are cleaned to perfection",
   },
 
   {
