@@ -3,9 +3,11 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
 interface ListProps {
-  label: string;
+  labelOne: string;
+  labelTwo: string;
+  labelThree: string;
   theme: string;
-  type: string;
+  icon: any;
   large?: boolean;
 }
 
