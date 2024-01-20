@@ -7,6 +7,7 @@ import Card from "./src/components/Card";
 import Carousel from "./src/components/Carousel";
 import Slider from "./src/components/Slider";
 import Logo from "./src/components/Logo";
+import Slides from "./src/data";
 
 export default function App() {
   // const imageUrl = require("./assets/images/washing-maching.png");
@@ -16,8 +17,8 @@ export default function App() {
       {/* <List theme="light" large /> */}
       {/* <Card icon="iron" label="Iron" description="Get your sleekness on" /> */}
       {/* <Carousel /> */}
-      {/* <Slider /> */}
-      <Logo />
+      <Slider slides={Slides} />
+      {/* <Logo /> */}
     </SafeAreaView>
   );
 }

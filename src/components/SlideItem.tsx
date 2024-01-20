@@ -22,6 +22,10 @@ const SlideItem = ({ item }) => {
   }).start();
   return (
     <View style={styles.container}>
+      <View style={styles.content}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.description}>{item.description}</Text>
+      </View>
       <Animated.Image
         source={item.img}
         resizeMode="contain"
@@ -36,11 +40,6 @@ const SlideItem = ({ item }) => {
           },
         ]}
       />
-      <View style={styles.content}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-        <Text style={styles.price}>{item.price}</Text>
-      </View>
     </View>
   );
 };
@@ -52,13 +51,17 @@ const styles = StyleSheet.create({
     width: width,
     height: height,
     alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
   },
   image: {
     flex: 0.4,
-    width: "100%",
+    width: "60%",
   },
   content: {
-    flex: 0.4,
+    // flex: 0.4,
+    gap: 8,
+    borderColor: "#000",
     alignItems: "center",
   },
   title: {
@@ -66,5 +69,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#333",
   },
-  description: {},
+  description: {
+    color: "grey",
+    fontSize: 16,
+    maxWidth: "80%",
+    textAlign: "center",
+  },
 });

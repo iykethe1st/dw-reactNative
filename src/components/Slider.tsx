@@ -8,10 +8,9 @@ import {
 } from "react-native";
 import React, { useRef, useState } from "react";
 import SlideItem from "./SlideItem";
-import Slides from "../data";
 import Pagination from "./Pagination";
 
-const Slider = () => {
+const Slider = ({ slides }) => {
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
 
@@ -42,7 +41,7 @@ const Slider = () => {
   }).current;
 
   return (
-    <SafeAreaView>
+    <View>
       <FlatList
         // ref={scrollX}
         horizontal
@@ -51,11 +50,11 @@ const Slider = () => {
         onScroll={handleScroll}
         onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={handleViewabilityConfig}
-        data={Slides}
+        data={slides}
         renderItem={({ item }) => <SlideItem item={item} />}
       />
-      <Pagination data={Slides} scrollX={scrollX} currentIndex={index} />
-    </SafeAreaView>
+      <Pagination data={slides} scrollX={scrollX} currentIndex={index} />
+    </View>
   );
 };
 
