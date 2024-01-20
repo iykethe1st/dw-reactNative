@@ -1,11 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, SafeAreaView } from "react-native";
 import React from "react";
 import Button from "./src/components/Button";
-import { SafeAreaView } from "react-native-safe-area-context";
+
 import List from "./src/components/List";
 import Card from "./src/components/Card";
 import Carousel from "./src/components/Carousel";
 import Slider from "./src/components/Slider";
+import Logo from "./src/components/Logo";
 
 export default function App() {
   // const imageUrl = require("./assets/images/washing-maching.png");
@@ -15,7 +16,8 @@ export default function App() {
       {/* <List theme="light" large /> */}
       {/* <Card icon="iron" label="Iron" description="Get your sleekness on" /> */}
       {/* <Carousel /> */}
-      <Slider />
+      {/* <Slider /> */}
+      <Logo />
     </SafeAreaView>
   );
 }
