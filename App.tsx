@@ -11,6 +11,8 @@ import Logo from "./src/components/Logo";
 import Slides from "./src/data";
 
 import AuthNavigator from "./src/navigations/AuthNavigator";
+import VerifyOTP from "./src/screens/auth/VerifyOTP";
+import OTPInput from "./src/components/auth/OTPInput";
 
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
       {/* <Slider slides={Slides} /> */}
       {/* <Logo /> */}
       <AuthNavigator />
+      {/* <VerifyOTP /> */}
+      {/* <OTPInput /> */}
       {/* </SafeAreaView> */}
     </NavigationContainer>
   );

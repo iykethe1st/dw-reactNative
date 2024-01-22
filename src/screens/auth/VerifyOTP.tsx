@@ -12,10 +12,11 @@ import Logo from "../../components/Logo";
 import Button from "../../components/Button";
 import { COLORS } from "../../constants";
 import PhoneInput from "react-native-phone-number-input";
+import OTPInput from "../../components/auth/OTPInput";
 
 const { width: screenWidth } = Dimensions.get("screen");
 
-const Register = () => {
+const VerifyOTP = () => {
   const phoneInput = useRef<PhoneInput>(null);
   const [value, setValue] = useState("");
 
@@ -60,7 +61,7 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default VerifyOTP;
 
 const styles = StyleSheet.create({
   container: {

@@ -1,11 +1,19 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 interface ButtonProps {
   label: string;
   theme: string;
   type: string;
 }
+
+const { width: screenWidth } = Dimensions.get("screen");
 
 const Button: React.FC<ButtonProps> = ({ label, theme, type }) => {
   const buttonWidth = label.length * 16;
@@ -16,7 +24,9 @@ const Button: React.FC<ButtonProps> = ({ label, theme, type }) => {
         style={[
           styles.button,
           theme === "dark" ? styles.dark : styles.light,
-          type === "small" ? { width: buttonWidth } : null,
+          type === "small"
+            ? { width: buttonWidth }
+            : { width: (screenWidth * 7) / 8 },
         ]}
       >
         <Text
@@ -35,7 +45,7 @@ const Button: React.FC<ButtonProps> = ({ label, theme, type }) => {
 const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
-    paddingHorizontal: 16,
+    paddingHorizontal: 10,
     marginVertical: 8,
   },
   button: {

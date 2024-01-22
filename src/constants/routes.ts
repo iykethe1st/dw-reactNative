@@ -2,6 +2,8 @@ export default {
   LOGIN: "Login",
   REGISTER: "Register",
   FORGOT_PASSWORD: "Forgot Password",
+  VERIFY_OTP: "Verify OTP",
+  VALIDATE_OTP: "Validate OTP",
 
   HOME: "Home",
   HOME_TAB: "Home Tab",

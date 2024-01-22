@@ -1,53 +1,32 @@
 import {
-  Dimensions,
   SafeAreaView,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useRef, useState } from "react";
-import Logo from "../../components/Logo";
+import React from "react";
+
 import Button from "../../components/Button";
 import { COLORS } from "../../constants";
-import PhoneInput from "react-native-phone-number-input";
 
-const { width: screenWidth } = Dimensions.get("screen");
+import OTPInput from "../../components/auth/OTPInput";
 
-const Register = () => {
-  const phoneInput = useRef<PhoneInput>(null);
-  const [value, setValue] = useState("");
-
+const ValidateOTP = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleWrapper}>
-        <Text style={styles.phoneText}>Mobile Number</Text>
+        <Text style={styles.phoneText}>Enter OTP</Text>
 
-        <Text style={styles.text}>Please enter your mobile phone number</Text>
+        <Text style={styles.text}>
+          Please enter the code sent to +234 70490211121
+        </Text>
       </View>
 
       <View style={styles.phoneWrapper}>
-        <PhoneInput
-          ref={phoneInput}
-          containerStyle={{
-            borderRadius: 8,
-            width: (screenWidth * 7) / 8,
-          }}
-          textContainerStyle={{
-            borderRadius: 8,
-            width: (screenWidth * 7) / 8,
-          }}
-          defaultValue={value}
-          defaultCode="NG"
-          onChangeFormattedText={(text) => {
-            setValue(text);
-          }}
-          withDarkTheme
-          withShadow
-          autoFocus
-        />
-        <Button label="Send OTP" theme="dark" type="large" />
+        <OTPInput />
+
+        <Button label="Confirm" theme="dark" type="large" />
       </View>
 
       <View style={styles.footer}>
@@ -59,8 +38,6 @@ const Register = () => {
     </SafeAreaView>
   );
 };
-
-export default Register;
 
 const styles = StyleSheet.create({
   container: {
@@ -93,9 +70,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   text: {
-    // fontSize: 16,
     color: COLORS.gray,
-    // fontWeight: "bold",
   },
   forgotText: {
     marginVertical: 10,
@@ -117,3 +92,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
+
+export default ValidateOTP;
