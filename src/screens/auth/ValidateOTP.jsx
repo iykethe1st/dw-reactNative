@@ -16,7 +16,7 @@ const ValidateOTP = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleWrapper}>
-        <Text style={styles.phoneText}>Enter OTP</Text>
+        <Text style={styles.phoneText}>Enter 6-Digit Code</Text>
 
         <Text style={styles.text}>
           Please enter the code sent to +234 70490211121
@@ -30,9 +30,9 @@ const ValidateOTP = () => {
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.text}>{"Already have an account? "}</Text>
+        <Text style={styles.text}>{"Didn't recieve any code? "}</Text>
         <TouchableOpacity>
-          <Text style={styles.altText}>Log In</Text>
+          <Text style={styles.altText}>Resend OTP</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
