@@ -9,9 +9,9 @@ import {
 import React from "react";
 import Logo from "../../components/Logo";
 import Button from "../../components/Button";
-import { COLORS } from "../../constants";
+import { COLORS, ROUTES } from "../../constants";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -23,7 +23,9 @@ const Login = () => {
         <TextInput style={styles.input} placeholder={"Email"} />
         <TextInput style={styles.input} placeholder={"Password"} />
         <Button label="Log in" theme="dark" type="large" />
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate(ROUTES.FORGOT_PASSWORD)}
+        >
           <Text style={[styles.altText, styles.forgotText]}>
             Forgot Password?
           </Text>
@@ -32,7 +34,7 @@ const Login = () => {
 
       <View style={styles.footer}>
         <Text>{"Don't have an account? "}</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate(ROUTES.REGISTER)}>
           <Text style={styles.altText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
@@ -46,10 +48,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+    alignItems: "center",
     paddingHorizontal: 16,
-    position: "relative",
+    // position: "relative",
     width: "100%",
   },
+
   input: {
     borderWidth: 1,
     borderColor: COLORS.gray,
@@ -59,6 +63,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     height: 55,
   },
+
   text: {
     textAlign: "center",
     marginVertical: 10,

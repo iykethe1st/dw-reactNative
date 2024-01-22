@@ -10,12 +10,12 @@ import {
 import React, { useRef, useState } from "react";
 import Logo from "../../components/Logo";
 import Button from "../../components/Button";
-import { COLORS } from "../../constants";
+import { COLORS, ROUTES } from "../../constants";
 import PhoneInput from "react-native-phone-number-input";
 
 const { width: screenWidth } = Dimensions.get("screen");
 
-const Register = () => {
+const Register = ({ navigation }) => {
   const phoneInput = useRef<PhoneInput>(null);
   const [value, setValue] = useState("");
 
@@ -52,7 +52,7 @@ const Register = () => {
 
       <View style={styles.footer}>
         <Text style={styles.text}>{"Already have an account? "}</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate(ROUTES.LOGIN)}>
           <Text style={styles.altText}>Log In</Text>
         </TouchableOpacity>
       </View>

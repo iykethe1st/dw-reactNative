@@ -4,13 +4,15 @@ import { Login, ForgotPassword, Register } from "../screens";
 import { ROUTES } from "../constants";
 import VerifyOTP from "../screens/auth/VerifyOTP";
 import ValidateOTP from "../screens/auth/ValidateOTP";
+import Home from "../screens/home/Home";
 
 const Stack = createStackNavigator();
 
 function AuthNavigator() {
   return (
-    <Stack.Navigator screenOptions={{}} initialRouteName={ROUTES.VALIDATE_OTP}>
+    <Stack.Navigator screenOptions={{}} initialRouteName={ROUTES.LOGIN}>
       <Stack.Screen name={ROUTES.LOGIN} component={Login} />
+      <Stack.Screen name={ROUTES.HOME} component={Home} />
       <Stack.Screen name={ROUTES.VERIFY_OTP} component={VerifyOTP} />
       <Stack.Screen name={ROUTES.VALIDATE_OTP} component={ValidateOTP} />
       <Stack.Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
