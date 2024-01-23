@@ -6,27 +6,39 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { COLORS } from "../constants";
 
 interface ButtonProps {
   label: string;
   theme: string;
   type: string;
+  onPress?: () => void;
+  disabled?: boolean;
 }
 
 const { width: screenWidth } = Dimensions.get("screen");
 
-const Button: React.FC<ButtonProps> = ({ label, theme, type }) => {
+const Button: React.FC<ButtonProps> = ({
+  label,
+  theme,
+  type,
+  onPress,
+  disabled,
+}) => {
   const buttonWidth = label.length * 16;
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
+        disabled={disabled}
+        onPress={onPress}
         style={[
           styles.button,
           theme === "dark" ? styles.dark : styles.light,
           type === "small"
             ? { width: buttonWidth }
             : { width: (screenWidth * 7) / 8 },
+          disabled ? styles.disabled : null,
         ]}
       >
         <Text
@@ -55,10 +67,12 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 8,
   },
-
   text: {
     fontWeight: "500",
     fontSize: 16,
+  },
+  disabled: {
+    backgroundColor: COLORS.grayLight,
   },
   light: {
     backgroundColor: "#DBF6F6",

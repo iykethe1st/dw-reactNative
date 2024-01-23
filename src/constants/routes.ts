@@ -5,6 +5,10 @@ export default {
   VERIFY_OTP: "Verify OTP",
   VALIDATE_OTP: "Validate OTP",
 
+  ORDERS: "Laundry Orders",
+  ORDERS_TAB: "Orders Tab",
+  ORDERS_DRAWER: "Orders Drawer",
+
   HOME: "Home",
   HOME_TAB: "Home Tab",
   HOME_DRAWER: "Home Drawer",

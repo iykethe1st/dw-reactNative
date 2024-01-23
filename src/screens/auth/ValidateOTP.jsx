@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -5,21 +6,33 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import { useRoute } from "@react-navigation/native";
 
 import Button from "../../components/Button";
 import { COLORS } from "../../constants";
-
 import OTPInput from "../../components/auth/OTPInput";
+import Toast from "react-native-toast-message";
 
 const ValidateOTP = () => {
+  const route = useRoute();
+
+  const [textInfo, setTextInfo] = useState("");
+
+  const handleResendOTP = () => {
+    Toast.show({
+      type: "success",
+      text1: "Success",
+      text2: `OTP successfully sent to ${route.params.phoneNumber}`,
+    });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleWrapper}>
         <Text style={styles.phoneText}>Enter 6-Digit Code</Text>
 
         <Text style={styles.text}>
-          Please enter the code sent to +234 70490211121
+          {`Please enter the code sent to ${route.params.phoneNumber}`}
         </Text>
       </View>
 
@@ -31,7 +44,7 @@ const ValidateOTP = () => {
 
       <View style={styles.footer}>
         <Text style={styles.text}>{"Didn't recieve any code? "}</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleResendOTP}>
           <Text style={styles.altText}>Resend OTP</Text>
         </TouchableOpacity>
       </View>
@@ -71,6 +84,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLORS.gray,
+  },
+  infoText: {
+    color: COLORS.warning,
+    marginVertical: 4,
   },
   forgotText: {
     marginVertical: 10,

@@ -2,6 +2,7 @@ import { StyleSheet, SafeAreaView } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import "react-native-gesture-handler";
+import Toast from "react-native-toast-message";
 
 import List from "./src/components/List";
 import Card from "./src/components/Card";
@@ -28,6 +29,7 @@ export default function App() {
       {/* <VerifyOTP /> */}
       {/* <OTPInput /> */}
       {/* </SafeAreaView> */}
+      <Toast />
     </NavigationContainer>
   );
 }

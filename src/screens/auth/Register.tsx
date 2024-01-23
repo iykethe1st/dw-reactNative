@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Logo from "../../components/Logo";
 import Button from "../../components/Button";
 import { COLORS, ROUTES } from "../../constants";
@@ -18,6 +18,28 @@ const { width: screenWidth } = Dimensions.get("screen");
 const Register = ({ navigation }) => {
   const phoneInput = useRef<PhoneInput>(null);
   const [value, setValue] = useState("");
+  const [valid, setValid] = useState(false);
+  const [error, setError] = useState("");
+
+  const validatePhoneNumber = () => {
+    const isValid = phoneInput.current?.isValidNumber(value);
+    if (isValid) {
+      setValid(isValid);
+      setError("");
+      return isValid;
+    } else {
+      setValid(false);
+      setError("Invalid phone number");
+      return false;
+    }
+  };
+
+  const handleSendOtp = () => {
+    const validated = validatePhoneNumber();
+    if (validated) {
+      return navigation.navigate(ROUTES.VALIDATE_OTP, { phoneNumber: value });
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,6 +47,7 @@ const Register = ({ navigation }) => {
         <Text style={styles.phoneText}>Mobile Number</Text>
 
         <Text style={styles.text}>Please enter your mobile phone number</Text>
+        {error && <Text style={[styles.text, styles.errorText]}>{error}</Text>}
       </View>
 
       <View style={styles.phoneWrapper}>
@@ -47,7 +70,13 @@ const Register = ({ navigation }) => {
           withShadow
           autoFocus
         />
-        <Button label="Send OTP" theme="dark" type="large" />
+        <Button
+          onPress={handleSendOtp}
+          // disabled={!valid}
+          label="Send OTP"
+          theme="dark"
+          type="large"
+        />
       </View>
 
       <View style={styles.footer}>
@@ -96,6 +125,10 @@ const styles = StyleSheet.create({
     // fontSize: 16,
     color: COLORS.gray,
     // fontWeight: "bold",
+  },
+  errorText: {
+    color: COLORS.danger,
+    marginVertical: 4,
   },
   forgotText: {
     marginVertical: 10,

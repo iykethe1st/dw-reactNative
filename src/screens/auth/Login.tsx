@@ -22,10 +22,15 @@ const Login = ({ navigation }) => {
       <View>
         <TextInput style={styles.input} placeholder={"Email"} />
         <TextInput style={styles.input} placeholder={"Password"} />
-        <Button label="Log in" theme="dark" type="large" />
-        <TouchableOpacity
-          onPress={() => navigation.navigate(ROUTES.FORGOT_PASSWORD)}
-        >
+
+        <Button
+          onPress={() => navigation.navigate(ROUTES.HOME)}
+          label="Log in"
+          theme="dark"
+          type="large"
+        />
+
+        <TouchableOpacity>
           <Text style={[styles.altText, styles.forgotText]}>
             Forgot Password?
           </Text>
