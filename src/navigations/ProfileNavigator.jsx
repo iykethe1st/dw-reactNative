@@ -9,7 +9,7 @@ import { BottomTabNavigator } from "./BottomTabNavigator";
 
 const Stack = createStackNavigator();
 
-function AuthNavigator() {
+function ProfileNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -22,23 +22,15 @@ function AuthNavigator() {
       }}
       initialRouteName={ROUTES.LOGIN}
     >
-      <Stack.Screen
-        name={ROUTES.LOGIN}
-        component={Login}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name={ROUTES.LOGIN} component={Login} />
       {/* <Stack.Screen name={ROUTES.HOME} component={Home} /> */}
       <Stack.Screen name={ROUTES.VERIFY_OTP} component={VerifyOTP} />
       <Stack.Screen name={ROUTES.VALIDATE_OTP} component={ValidateOTP} />
       <Stack.Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
       <Stack.Screen name={ROUTES.REGISTER} component={Register} />
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name={ROUTES.HOME}
-        component={BottomTabNavigator}
-      />
+      <Stack.Screen />
     </Stack.Navigator>
   );
 }
 
-export default AuthNavigator;
+export default ProfileNavigator;

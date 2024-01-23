@@ -5,6 +5,8 @@ import { COLORS, ROUTES } from "../constants";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 
 import { useRoute } from "@react-navigation/native";
+import Settings from "../screens/home/Settings";
+import SettingsNavigator from "./SettingsNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +25,8 @@ export function BottomTabNavigator() {
             iconName = focused ? "person" : "person-outline";
           } else if (route.name === ROUTES.NOTIFICATIONS) {
             iconName = focused ? "notifications" : "notifications-outline";
+          } else if (route.name === ROUTES.SETTINGS_NAVIGATOR) {
+            iconName = focused ? "settings" : "settings-outline";
           } else if (route.name === ROUTES.ORDERS) {
             if (focused) {
               return (
@@ -47,9 +51,16 @@ export function BottomTabNavigator() {
       })}
     >
       <Tab.Screen name={ROUTES.HOME} component={Home} />
-      <Tab.Screen name={ROUTES.PROFILE} component={Profile} />
-      <Tab.Screen name={ROUTES.NOTIFICATIONS} component={Notifications} />
       <Tab.Screen name={ROUTES.ORDERS} component={Orders} />
+      {/* <Tab.Screen name={ROUTES.NOTIFICATIONS} component={Notifications} /> */}
+      <Tab.Screen
+        name={ROUTES.SETTINGS_NAVIGATOR}
+        component={SettingsNavigator}
+        options={{
+          tabBarLabel: "Settings",
+        }}
+      />
+      <Tab.Screen name={ROUTES.PROFILE} component={Profile} />
     </Tab.Navigator>
   );
 }

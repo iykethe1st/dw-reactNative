@@ -5,7 +5,7 @@ export default {
   VERIFY_OTP: "Verify OTP",
   VALIDATE_OTP: "Validate OTP",
 
-  ORDERS: "Laundry Orders",
+  ORDERS: "Orders",
   ORDERS_TAB: "Orders Tab",
   ORDERS_DRAWER: "Orders Drawer",
 
@@ -24,5 +24,5 @@ export default {
   SETTINGS_NAVIGATOR: "Settings Navigator",
 
   SETTINGS_DETAIL: "Settings Detail",
-  PROFILE: "My Profile",
+  PROFILE: "Profile",
 };

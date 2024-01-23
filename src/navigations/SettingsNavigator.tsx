@@ -6,10 +6,11 @@ import VerifyOTP from "../screens/auth/VerifyOTP";
 import ValidateOTP from "../screens/auth/ValidateOTP";
 import Home from "../screens/home/Home";
 import { BottomTabNavigator } from "./BottomTabNavigator";
+import Settings from "../screens/home/Settings";
 
 const Stack = createStackNavigator();
 
-function AuthNavigator() {
+function SettingsNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -23,22 +24,14 @@ function AuthNavigator() {
       initialRouteName={ROUTES.LOGIN}
     >
       <Stack.Screen
-        name={ROUTES.LOGIN}
-        component={Login}
-        options={{ headerShown: false }}
-      />
-      {/* <Stack.Screen name={ROUTES.HOME} component={Home} /> */}
-      <Stack.Screen name={ROUTES.VERIFY_OTP} component={VerifyOTP} />
-      <Stack.Screen name={ROUTES.VALIDATE_OTP} component={ValidateOTP} />
-      <Stack.Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
-      <Stack.Screen name={ROUTES.REGISTER} component={Register} />
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name={ROUTES.HOME}
-        component={BottomTabNavigator}
+        options={{
+          headerShown: false,
+        }}
+        name={ROUTES.SETTINGS}
+        component={Settings}
       />
     </Stack.Navigator>
   );
 }
 
-export default AuthNavigator;
+export default SettingsNavigator;
