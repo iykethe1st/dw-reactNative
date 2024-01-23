@@ -6,6 +6,7 @@ import VerifyOTP from "../screens/auth/VerifyOTP";
 import ValidateOTP from "../screens/auth/ValidateOTP";
 import Home from "../screens/home/Home";
 import { BottomTabNavigator } from "./BottomTabNavigator";
+import { DrawerNavigator } from "./DrawerNavigator";
 
 const Stack = createStackNavigator();
 
@@ -35,7 +36,7 @@ function AuthNavigator() {
       <Stack.Screen
         options={{ headerShown: false }}
         name={ROUTES.HOME}
-        component={BottomTabNavigator}
+        component={DrawerNavigator}
       />
     </Stack.Navigator>
   );

@@ -7,6 +7,8 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
 import Settings from "../screens/home/Settings";
 import SettingsNavigator from "./SettingsNavigator";
+import { StyleSheet } from "react-native";
+import CustomTabBarButton from "../components/CustomTabBarButton";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,7 +18,11 @@ export function BottomTabNavigator() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
+        tabBarShowLabel: true,
+        tabBarInactiveTintColor: COLORS.dark,
+        tabBarStyle: styles.tabBarStyle,
         tabBarActiveTintColor: COLORS.primary,
+
         tabBarIcon: ({ color, size, focused }) => {
           let iconName = "home";
           if (route.name === ROUTES.HOME_TAB) {
@@ -50,17 +56,49 @@ export function BottomTabNavigator() {
         },
       })}
     >
-      <Tab.Screen name={ROUTES.HOME} component={Home} />
-      <Tab.Screen name={ROUTES.ORDERS} component={Orders} />
+      <Tab.Screen
+        options={{
+          tabBarButton: (props) => <CustomTabBarButton {...props} />,
+        }}
+        name={ROUTES.HOME}
+        component={Home}
+      />
+      <Tab.Screen
+        options={{
+          tabBarButton: (props) => <CustomTabBarButton {...props} />,
+        }}
+        name={ROUTES.ORDERS}
+        component={Orders}
+      />
       {/* <Tab.Screen name={ROUTES.NOTIFICATIONS} component={Notifications} /> */}
       <Tab.Screen
         name={ROUTES.SETTINGS_NAVIGATOR}
         component={SettingsNavigator}
         options={{
+          tabBarButton: (props) => <CustomTabBarButton {...props} />,
           tabBarLabel: "Settings",
         }}
       />
-      <Tab.Screen name={ROUTES.PROFILE} component={Profile} />
+      <Tab.Screen
+        options={{
+          tabBarButton: (props) => <CustomTabBarButton {...props} />,
+        }}
+        name={ROUTES.PROFILE}
+        component={Profile}
+      />
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  tabBarStyle: {
+    backgroundColor: COLORS.primary,
+    position: "absolute",
+    borderTopWidth: 0,
+    // bottom: 15,
+    // borderRadius: 20,
+    // left: 10,
+    height: 100,
+    // right: 10,
+  },
+});
