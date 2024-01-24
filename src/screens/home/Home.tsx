@@ -17,7 +17,7 @@ import List from "../../components/List";
 const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.headerWrapper}>
           <Text style={styles.headerText}>Hello, Ikenna</Text>
           <NotificationIcon onPress={() => {}} unread={false} />
@@ -106,13 +106,6 @@ const Home = () => {
             labelThree="22 Hours left"
             iconLibrary="MaterialCommunityIcons"
           />
-          <List
-            icon="washing-machine-alert"
-            theme="light"
-            labelOne="DW-78479302"
-            labelThree="22 Hours left"
-            iconLibrary="MaterialCommunityIcons"
-          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -124,6 +117,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,
+    marginBottom: 100
   },
   headerWrapper: {
     justifyContent: "space-between",
