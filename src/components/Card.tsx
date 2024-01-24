@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { COLORS } from "../constants";
 
 interface CardProps {
   icon: any;
@@ -11,11 +12,9 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ icon, label, description }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.imageWrapper}>
-        <MaterialCommunityIcons name={icon} size={45} color="#11BFBF" />
-        <Text style={[styles.text, styles.bold]}>{label}</Text>
-      </View>
-      <View>
+      <View style={styles.cardWrapper}>
+        <MaterialCommunityIcons name={icon} size={45} color={COLORS.primary} />
+        <Text style={styles.textLabel}>{label}</Text>
         <Text style={styles.textDescription}>{description}</Text>
       </View>
     </View>
@@ -24,14 +23,15 @@ const Card: React.FC<CardProps> = ({ icon, label, description }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#F9F9F9",
-    height: 180,
-    width: 170,
+    backgroundColor: COLORS.grayLight,
+    height: 150,
+    flex: 1,
     borderRadius: 8,
-    padding: 10,
-    marginHorizontal: 16,
-    marginVertical: 8,
-    justifyContent: "space-around",
+    paddingVertical: 10,
+    paddingHorizontal: 8,
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+
     elevation: 20,
     shadowOffset: {
       height: 100,
@@ -39,18 +39,23 @@ const styles = StyleSheet.create({
     },
     shadowColor: "black",
   },
-  imageWrapper: {
-    gap: 4,
+  cardWrapper: {
+    gap: 6,
+    // borderWidth: 4,
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    flex: 1,
   },
-  text: {
-    fontSize: 18,
+  textLabel: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: COLORS.dark,
+    marginLeft: 8,
   },
-  bold: {
-    fontWeight: "500",
-    color: "#000000",
-  },
+
   textDescription: {
-    color: "grey",
+    color: COLORS.gray,
+    marginLeft: 8,
   },
 });
 

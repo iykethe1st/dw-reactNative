@@ -19,7 +19,7 @@ export function BottomTabNavigator() {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarShowLabel: true,
-        tabBarInactiveTintColor: COLORS.black,
+        tabBarInactiveTintColor: COLORS.dark,
         tabBarStyle: styles.tabBarStyle,
         tabBarActiveTintColor: COLORS.white,
 
