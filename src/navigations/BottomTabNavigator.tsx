@@ -4,24 +4,24 @@ import { Home, Notifications, Orders, Profile } from "../screens";
 import { COLORS, ROUTES } from "../constants";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import Settings from "../screens/home/Settings";
 import SettingsNavigator from "./SettingsNavigator";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet, TouchableOpacity } from "react-native";
 import CustomTabBarButton from "../components/CustomTabBarButton";
 
 const Tab = createBottomTabNavigator();
 
 export function BottomTabNavigator() {
-  // const route = useRoute();
+  const navigation = useNavigation();
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarShowLabel: true,
-        tabBarInactiveTintColor: COLORS.dark,
+        tabBarInactiveTintColor: COLORS.black,
         tabBarStyle: styles.tabBarStyle,
-        tabBarActiveTintColor: COLORS.primary,
+        tabBarActiveTintColor: COLORS.white,
 
         tabBarIcon: ({ color, size, focused }) => {
           let iconName = "home";
@@ -56,36 +56,31 @@ export function BottomTabNavigator() {
         },
       })}
     >
-      <Tab.Screen
-        options={{
-          tabBarButton: (props) => <CustomTabBarButton {...props} />,
-        }}
-        name={ROUTES.HOME}
-        component={Home}
-      />
-      <Tab.Screen
-        options={{
-          tabBarButton: (props) => <CustomTabBarButton {...props} />,
-        }}
-        name={ROUTES.ORDERS}
-        component={Orders}
-      />
+      <Tab.Screen name={ROUTES.HOME} component={Home} />
+      <Tab.Screen name={ROUTES.ORDERS} component={Orders} />
       {/* <Tab.Screen name={ROUTES.NOTIFICATIONS} component={Notifications} /> */}
       <Tab.Screen
         name={ROUTES.SETTINGS_NAVIGATOR}
         component={SettingsNavigator}
         options={{
-          tabBarButton: (props) => <CustomTabBarButton {...props} />,
           tabBarLabel: "Settings",
+          headerShown: true,
+          title: "Settings",
+          headerRight: ({ color, size, focused }) => {
+            return (
+              <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                <Ionicons
+                  style={{ marginHorizontal: 8 }}
+                  name={"notifications"}
+                  size={30}
+                  color={COLORS.dark}
+                />
+              </TouchableOpacity>
+            );
+          },
         }}
       />
-      <Tab.Screen
-        options={{
-          tabBarButton: (props) => <CustomTabBarButton {...props} />,
-        }}
-        name={ROUTES.PROFILE}
-        component={Profile}
-      />
+      <Tab.Screen options={{}} name={ROUTES.PROFILE} component={Profile} />
     </Tab.Navigator>
   );
 }

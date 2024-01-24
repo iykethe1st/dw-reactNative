@@ -4,12 +4,14 @@ import { COLORS, ROUTES } from "../constants";
 import { Home, Notifications } from "../screens";
 import { BottomTabNavigator } from "./BottomTabNavigator";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import CustomDrawer from "../components/CustomDrawer";
 
 const Drawer = createDrawerNavigator();
 
 export function DrawerNavigator() {
   return (
     <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
         drawerActiveBackgroundColor: COLORS.primary,

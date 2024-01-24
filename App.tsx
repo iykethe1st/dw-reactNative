@@ -17,8 +17,8 @@ import OTPInput from "./src/components/auth/OTPInput";
 
 export default function App() {
   return (
+    // <SafeAreaView style={styles.container}>
     <NavigationContainer>
-      {/* <SafeAreaView style={styles.container}> */}
       {/* <Button label="Continue" theme="light" type="large" /> */}
       {/* <List theme="light" large /> */}
       {/* <Card icon="iron" label="Iron" description="Get your sleekness on" /> */}
@@ -28,9 +28,9 @@ export default function App() {
       <AuthNavigator />
       {/* <VerifyOTP /> */}
       {/* <OTPInput /> */}
-      {/* </SafeAreaView> */}
       <Toast />
     </NavigationContainer>
+    // </SafeAreaView>
   );
 }
 
