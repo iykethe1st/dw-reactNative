@@ -8,6 +8,9 @@ interface ListProps {
   labelOne?: string;
   labelTwo?: string;
   labelThree?: string;
+  labelFour?: string;
+  labelFive?: string;
+  title: string;
   theme: string;
   icon?: any;
   large?: boolean;
@@ -19,6 +22,9 @@ const List: React.FC<ListProps> = ({
   labelOne,
   labelTwo,
   labelThree,
+  labelFour,
+  labelFive,
+  title,
   icon,
   large,
   iconLibrary,
@@ -33,16 +39,27 @@ const List: React.FC<ListProps> = ({
       >
         <View style={styles.largeWrapper}>
           <View style={styles.iconWrapper}>
-            <AntDesign
-              name="dingding-o"
-              size={40}
-              color={theme === "dark" ? "#DBF6F6" : "#11BFBF"}
-            />
+            {iconLibrary === "MaterialIcons" && (
+              <MaterialIcons
+                name={icon}
+                size={20}
+                color={theme === "dark" ? "#DBF6F6" : COLORS.dark}
+              />
+            )}
+
+            {iconLibrary === "MaterialCommunityIcons" && (
+              <MaterialCommunityIcons
+                style={styles.icon}
+                name={icon}
+                size={20}
+                color={theme === "dark" ? "#DBF6F6" : "#11BFBF"}
+              />
+            )}
             <View style={styles.textWrapper}>
               <Text
                 style={[
                   styles.text,
-                  styles.boldText,
+                  styles.labelOneText,
                   theme === "dark" ? styles.darkText : styles.lightText,
                 ]}
               >
@@ -50,22 +67,22 @@ const List: React.FC<ListProps> = ({
               </Text>
               <Text
                 style={[
-                  styles.textSm,
-                  theme === "dark" ? styles.darkText : styles.greyText,
+                  styles.text,
+                  theme === "dark" ? styles.labelTwoDark : styles.labelTwoLight,
                 ]}
               >
-                {labelOne}
+                {labelTwo}
               </Text>
             </View>
           </View>
           <View>
             <Text
               style={[
-                styles.textSm,
-                theme === "dark" ? styles.darkText : styles.greyText,
+                styles.text,
+                theme === "dark" ? styles.labelTwoDark : styles.labelTwoLight,
               ]}
             >
-              List
+              {labelThree}
             </Text>
           </View>
         </View>
@@ -73,16 +90,15 @@ const List: React.FC<ListProps> = ({
         <View style={styles.largeWrapper}>
           <View style={styles.textWrapper}>
             <Text
-              style={[
-                styles.text,
-                theme === "dark" ? styles.darkText : styles.greyText,
-              ]}
+              style={
+                theme === "dark" ? styles.labelFourDark : styles.labelFourLight
+              }
             >
-              List
+              {labelFour}
             </Text>
           </View>
           <View>
-            <Text style={[styles.text, styles.boldText]}>List</Text>
+            <Text style={[styles.text, styles.boldText]}>{labelFive}</Text>
           </View>
         </View>
       </View>
@@ -112,7 +128,6 @@ const List: React.FC<ListProps> = ({
         <View style={styles.textWrapper}>
           <Text
             style={[
-              styles.text,
               styles.labelOneText,
               theme === "dark" ? styles.darkText : styles.lightText,
             ]}
@@ -156,14 +171,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 20,
     borderRadius: 8,
-    marginVertical: 2,
+    marginVertical: 5,
   },
-
+  listTitle: {
+    marginVertical: 5,
+    fontSize: 16,
+    color: COLORS.dark,
+    fontWeight: "bold",
+  },
   largeContainer: {
     flexDirection: "column",
-    paddingHorizontal: 20,
-    marginHorizontal: 16,
-    marginVertical: 8,
+    marginVertical: 5,
+    justifyContent: "center",
+    // alignItems: "flex-start",
     padding: 10,
     borderRadius: 8,
     gap: 20,
@@ -182,6 +202,8 @@ const styles = StyleSheet.create({
   textWrapper: {
     gap: 2,
     marginLeft: 10,
+    alignContent: "center",
+    justifyContent: "center",
   },
   text: {
     fontSize: 16,
@@ -231,6 +253,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
   },
+
+  labelFourLight: {
+    color: COLORS.primary,
+    fontWeight: "bold",
+  },
+
+  labelFourDark: {
+    color: COLORS.dark,
+  },
+
   icon: {
     // padding: 4,
   },
