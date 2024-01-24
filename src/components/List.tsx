@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
-import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  MaterialIcons,
+  MaterialCommunityIcons,
+  Ionicons,
+} from "@expo/vector-icons";
 import { COLORS } from "../constants";
 
 interface ListProps {
@@ -10,7 +14,6 @@ interface ListProps {
   labelThree?: string;
   labelFour?: string;
   labelFive?: string;
-  title: string;
   theme: string;
   icon?: any;
   large?: boolean;
@@ -24,7 +27,6 @@ const List: React.FC<ListProps> = ({
   labelThree,
   labelFour,
   labelFive,
-  title,
   icon,
   large,
   iconLibrary,
@@ -49,6 +51,15 @@ const List: React.FC<ListProps> = ({
 
             {iconLibrary === "MaterialCommunityIcons" && (
               <MaterialCommunityIcons
+                style={styles.icon}
+                name={icon}
+                size={20}
+                color={theme === "dark" ? "#DBF6F6" : "#11BFBF"}
+              />
+            )}
+
+            {iconLibrary === "IonIcons" && (
+              <Ionicons
                 style={styles.icon}
                 name={icon}
                 size={20}
@@ -119,6 +130,15 @@ const List: React.FC<ListProps> = ({
 
         {iconLibrary === "MaterialCommunityIcons" && (
           <MaterialCommunityIcons
+            style={styles.icon}
+            name={icon}
+            size={20}
+            color={theme === "dark" ? "#DBF6F6" : "#11BFBF"}
+          />
+        )}
+
+        {iconLibrary === "IonIcons" && (
+          <Ionicons
             style={styles.icon}
             name={icon}
             size={20}

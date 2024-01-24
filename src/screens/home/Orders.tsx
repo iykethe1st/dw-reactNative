@@ -23,11 +23,10 @@ const Orders = () => {
             labelTwo="Paradise City Layout Enugu"
             labelFour="Completed"
             labelFive="₦2,500"
-            title="Today"
             icon="washing-machine"
             large
             iconLibrary="MaterialCommunityIcons"
-          ></List>
+          />
 
           <List
             theme="light"
@@ -35,22 +34,20 @@ const Orders = () => {
             labelTwo="Paradise City Layout Enugu"
             labelFour="Completed"
             labelFive="₦2,500"
-            title="Today"
             icon="washing-machine"
             large
             iconLibrary="MaterialCommunityIcons"
-          ></List>
+          />
           <List
             theme="light"
             labelOne="Wash & Iron"
             labelTwo="Paradise City Layout Enugu"
             labelFour="Completed"
             labelFive="₦2,500"
-            title="Today"
             icon="washing-machine"
             large
             iconLibrary="MaterialCommunityIcons"
-          ></List>
+          />
         </View>
 
         <View style={styles.dateWrapper}>
@@ -61,11 +58,10 @@ const Orders = () => {
             labelTwo="Paradise City Layout Enugu"
             labelFour="Completed"
             labelFive="₦2,500"
-            title="Today"
             icon="washing-machine"
             large
             iconLibrary="MaterialCommunityIcons"
-          ></List>
+          />
 
           <List
             theme="light"
@@ -73,22 +69,20 @@ const Orders = () => {
             labelTwo="Paradise City Layout Enugu"
             labelFour="Completed"
             labelFive="₦2,500"
-            title="Today"
             icon="washing-machine"
             large
             iconLibrary="MaterialCommunityIcons"
-          ></List>
+          />
           <List
             theme="light"
             labelOne="Wash & Iron"
             labelTwo="Paradise City Layout Enugu"
             labelFour="Completed"
             labelFive="₦2,500"
-            title="Today"
             icon="washing-machine"
             large
             iconLibrary="MaterialCommunityIcons"
-          ></List>
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
