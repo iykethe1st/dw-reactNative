@@ -1,6 +1,5 @@
 import { SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
-import SearchInput from "../../components/SearchInput";
 import { COLORS } from "../../constants";
 import List from "../../components/List";
 import { ScrollView } from "react-native-gesture-handler";
@@ -8,8 +7,6 @@ import { ScrollView } from "react-native-gesture-handler";
 const Orders = () => {
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Text>Orders</Text> */}
-
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           <TextInput style={styles.searchInput} placeholder="Search List..." />
@@ -17,62 +14,6 @@ const Orders = () => {
 
         <View style={styles.dateWrapper}>
           <Text style={styles.dateWrapper}>Today</Text>
-          <List
-            theme="light"
-            labelOne="Wash & Iron"
-            labelTwo="Paradise City Layout Enugu"
-            labelFour="Completed"
-            labelFive="₦2,500"
-            icon="washing-machine"
-            large
-            iconLibrary="MaterialCommunityIcons"
-          />
-
-          <List
-            theme="light"
-            labelOne="Wash & Iron"
-            labelTwo="Paradise City Layout Enugu"
-            labelFour="Completed"
-            labelFive="₦2,500"
-            icon="washing-machine"
-            large
-            iconLibrary="MaterialCommunityIcons"
-          />
-          <List
-            theme="light"
-            labelOne="Wash & Iron"
-            labelTwo="Paradise City Layout Enugu"
-            labelFour="Completed"
-            labelFive="₦2,500"
-            icon="washing-machine"
-            large
-            iconLibrary="MaterialCommunityIcons"
-          />
-        </View>
-
-        <View style={styles.dateWrapper}>
-          <Text style={styles.dateWrapper}>Yesterday</Text>
-          <List
-            theme="light"
-            labelOne="Iron"
-            labelTwo="Paradise City Layout Enugu"
-            labelFour="Completed"
-            labelFive="₦2,500"
-            icon="washing-machine"
-            large
-            iconLibrary="MaterialCommunityIcons"
-          />
-
-          <List
-            theme="light"
-            labelOne="Wash & Iron"
-            labelTwo="Paradise City Layout Enugu"
-            labelFour="Completed"
-            labelFive="₦2,500"
-            icon="washing-machine"
-            large
-            iconLibrary="MaterialCommunityIcons"
-          />
           <List
             theme="light"
             labelOne="Wash & Iron"

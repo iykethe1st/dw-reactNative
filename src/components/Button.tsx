@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import { COLORS } from "../constants";
+import { Feather } from "@expo/vector-icons";
 
 interface ButtonProps {
   label: string;
@@ -14,6 +15,7 @@ interface ButtonProps {
   type: string;
   onPress?: () => void;
   disabled?: boolean;
+  icon?: string;
 }
 
 const { width: screenWidth } = Dimensions.get("screen");
@@ -24,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({
   type,
   onPress,
   disabled,
+  icon,
 }) => {
   const buttonWidth = label.length * 16;
 
@@ -41,6 +44,7 @@ const Button: React.FC<ButtonProps> = ({
           disabled ? styles.disabled : null,
         ]}
       >
+        {icon && <Feather name={icon} size={24} color={COLORS.dark} />}
         <Text
           style={[
             styles.text,
@@ -61,9 +65,10 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   button: {
-    backgroundColor: "#37D9F0",
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "row",
+    gap: 8,
     height: 50,
     borderRadius: 8,
   },
@@ -75,16 +80,16 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.grayLight,
   },
   light: {
-    backgroundColor: "#DBF6F6",
+    backgroundColor: COLORS.grayLight,
   },
   dark: {
-    backgroundColor: "#11BFBF",
+    backgroundColor: COLORS.primary,
   },
   lightText: {
-    color: "#11BFBF",
+    color: COLORS.primary,
   },
   darkText: {
-    color: "white",
+    color: COLORS.white,
   },
 });
 

@@ -9,6 +9,8 @@ export default {
   ORDERS_TAB: "Orders Tab",
   ORDERS_DRAWER: "Orders Drawer",
 
+  CHOOSE_LOCATION: "Choose Location",
+
   HOME: "Home",
   HOME_TAB: "Home Tab",
   HOME_DRAWER: "Home Drawer",

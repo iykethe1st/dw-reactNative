@@ -28,7 +28,6 @@ function ProfileNavigator() {
       <Stack.Screen name={ROUTES.VALIDATE_OTP} component={ValidateOTP} />
       <Stack.Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
       <Stack.Screen name={ROUTES.REGISTER} component={Register} />
-      <Stack.Screen />
     </Stack.Navigator>
   );
 }

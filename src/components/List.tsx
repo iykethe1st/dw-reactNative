@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import { AntDesign } from "@expo/vector-icons";
 import {
   MaterialIcons,
   MaterialCommunityIcons,
   Ionicons,
+  FontAwesome6,
 } from "@expo/vector-icons";
 import { COLORS } from "../constants";
 
@@ -33,7 +33,7 @@ const List: React.FC<ListProps> = ({
 }) => {
   if (large)
     return (
-      <View
+      <TouchableOpacity
         style={[
           styles.largeContainer,
           theme === "dark" ? styles.dark : styles.light,
@@ -54,7 +54,7 @@ const List: React.FC<ListProps> = ({
                 style={styles.icon}
                 name={icon}
                 size={20}
-                color={theme === "dark" ? "#DBF6F6" : "#11BFBF"}
+                color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
               />
             )}
 
@@ -63,7 +63,7 @@ const List: React.FC<ListProps> = ({
                 style={styles.icon}
                 name={icon}
                 size={20}
-                color={theme === "dark" ? "#DBF6F6" : "#11BFBF"}
+                color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
               />
             )}
             <View style={styles.textWrapper}>
@@ -112,19 +112,19 @@ const List: React.FC<ListProps> = ({
             <Text style={[styles.text, styles.boldText]}>{labelFive}</Text>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
 
   return (
-    <View
+    <TouchableOpacity
       style={[styles.container, theme === "dark" ? styles.dark : styles.light]}
     >
       <View style={styles.iconWrapper}>
         {iconLibrary === "MaterialIcons" && (
           <MaterialIcons
             name={icon}
-            size={20}
-            color={theme === "dark" ? "#DBF6F6" : COLORS.dark}
+            size={24}
+            color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
           />
         )}
 
@@ -132,8 +132,8 @@ const List: React.FC<ListProps> = ({
           <MaterialCommunityIcons
             style={styles.icon}
             name={icon}
-            size={20}
-            color={theme === "dark" ? "#DBF6F6" : "#11BFBF"}
+            size={24}
+            color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
           />
         )}
 
@@ -141,8 +141,17 @@ const List: React.FC<ListProps> = ({
           <Ionicons
             style={styles.icon}
             name={icon}
-            size={20}
-            color={theme === "dark" ? "#DBF6F6" : "#11BFBF"}
+            size={24}
+            color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
+          />
+        )}
+
+        {iconLibrary === "FontAwesome" && (
+          <FontAwesome6
+            style={styles.icon}
+            name={icon}
+            size={24}
+            color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
           />
         )}
         <View style={styles.textWrapper}>
@@ -177,7 +186,7 @@ const List: React.FC<ListProps> = ({
           </Text>
         </View>
       )}
-    </View>
+    </TouchableOpacity>
   );
 };
 

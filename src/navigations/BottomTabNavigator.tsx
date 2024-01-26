@@ -59,7 +59,7 @@ export function BottomTabNavigator() {
       <Tab.Screen name={ROUTES.HOME} component={Home} />
       <Tab.Screen name={ROUTES.ORDERS} component={Orders} />
       {/* <Tab.Screen name={ROUTES.NOTIFICATIONS} component={Notifications} /> */}
-      <Tab.Screen
+      {/* <Tab.Screen
         name={ROUTES.SETTINGS_NAVIGATOR}
         component={SettingsNavigator}
         options={{
@@ -79,7 +79,7 @@ export function BottomTabNavigator() {
             );
           },
         }}
-      />
+      /> */}
       <Tab.Screen options={{}} name={ROUTES.PROFILE} component={Profile} />
     </Tab.Navigator>
   );
@@ -90,10 +90,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     position: "absolute",
     borderTopWidth: 0,
-    // bottom: 15,
-    // borderRadius: 20,
-    // left: 10,
     height: 100,
-    // right: 10,
   },
 });

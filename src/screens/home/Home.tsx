@@ -1,20 +1,15 @@
 import React from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
-import { COLORS } from "../../constants";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+
+import { COLORS, ROUTES } from "../../constants";
 import NotificationIcon from "../../components/NotificationIcon";
 import Card from "../../components/Card";
 import List from "../../components/List";
+import { useNavigation } from "@react-navigation/native";
 
-const Home = () => {
+const Home = ({ navigation }) => {
+  // const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -39,6 +34,7 @@ const Home = () => {
           </Text>
           <View style={styles.cardWrapper}>
             <Card
+              onPress={() => navigation.navigate(ROUTES.CHOOSE_LOCATION)}
               icon={"washing-machine"}
               label={"Laundry"}
               description="Schedule your laundry, includes ironing too"
@@ -60,45 +56,10 @@ const Home = () => {
             labelThree="22 Hours left"
             iconLibrary="MaterialCommunityIcons"
           />
-          <List
-            icon="washing-machine-alert"
-            theme="light"
-            labelOne="DW-78479302"
-            labelThree="22 Hours left"
-            iconLibrary="MaterialCommunityIcons"
-          />
         </View>
 
         <View style={styles.orderWrapper}>
           <Text style={styles.orderTitle}>Recently Completed</Text>
-          <List
-            icon="washing-machine-alert"
-            theme="light"
-            labelOne="DW-78479302"
-            labelThree="22 Hours left"
-            iconLibrary="MaterialCommunityIcons"
-          />
-          <List
-            icon="washing-machine-alert"
-            theme="light"
-            labelOne="DW-78479302"
-            labelThree="22 Hours left"
-            iconLibrary="MaterialCommunityIcons"
-          />
-          <List
-            icon="washing-machine-alert"
-            theme="light"
-            labelOne="DW-78479302"
-            labelThree="22 Hours left"
-            iconLibrary="MaterialCommunityIcons"
-          />
-          <List
-            icon="washing-machine-alert"
-            theme="light"
-            labelOne="DW-78479302"
-            labelThree="22 Hours left"
-            iconLibrary="MaterialCommunityIcons"
-          />
           <List
             icon="washing-machine-alert"
             theme="light"
@@ -117,7 +78,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,
-    marginBottom: 100
+    marginBottom: 100,
   },
   headerWrapper: {
     justifyContent: "space-between",
