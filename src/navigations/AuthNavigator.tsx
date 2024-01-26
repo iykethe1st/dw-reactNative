@@ -8,6 +8,7 @@ import Home from "../screens/home/Home";
 import { BottomTabNavigator } from "./BottomTabNavigator";
 import { DrawerNavigator } from "./DrawerNavigator";
 import ChooseLocation from "../screens/home/ChooseLocation";
+import CourierSearch from "../screens/home/CourierSearch";
 
 const Stack = createStackNavigator();
 
@@ -40,6 +41,11 @@ function AuthNavigator() {
         component={DrawerNavigator}
       />
       <Stack.Screen name={ROUTES.CHOOSE_LOCATION} component={ChooseLocation} />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name={ROUTES.COURIER_SEARCH}
+        component={CourierSearch}
+      />
     </Stack.Navigator>
   );
 }

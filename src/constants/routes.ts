@@ -10,6 +10,7 @@ export default {
   ORDERS_DRAWER: "Orders Drawer",
 
   CHOOSE_LOCATION: "Choose Location",
+  COURIER_SEARCH: "Courier Search",
 
   HOME: "Home",
   HOME_TAB: "Home Tab",

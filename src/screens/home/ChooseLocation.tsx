@@ -2,10 +2,10 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import SearchInput from "../../components/SearchInput";
 import List from "../../components/List";
-import { COLORS } from "../../constants";
+import { COLORS, ROUTES } from "../../constants";
 import Button from "../../components/Button";
 
-const ChooseLocation = () => {
+const ChooseLocation = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <SearchInput />
@@ -18,10 +18,15 @@ const ChooseLocation = () => {
           icon="location-arrow"
           iconLibrary="FontAwesome"
         />
+      </View>
 
-        <View style={styles.buttonWrapper}>
-          <Button type="large" theme="dark" label="Confirm location" />
-        </View>
+      <View style={styles.buttonWrapper}>
+        <Button
+          onPress={() => navigation.navigate(ROUTES.COURIER_SEARCH)}
+          type="large"
+          theme="dark"
+          label="Confirm location"
+        />
       </View>
     </SafeAreaView>
   );
@@ -32,9 +37,7 @@ export default ChooseLocation;
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,
-    marginBottom: 100,
     flex: 1,
-    position: "relative",
   },
 
   locationWrapper: {
@@ -48,8 +51,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   buttonWrapper: {
-    position: "absolute",
-    bottom: 0,
     alignSelf: "center",
   },
 });
