@@ -1,11 +1,15 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import SearchInput from "../../components/SearchInput";
 import List from "../../components/List";
 import { COLORS, ROUTES } from "../../constants";
 import Button from "../../components/Button";
 
-const ChooseLocation = ({ navigation }) => {
+interface NavigationProps {
+  navigation: any;
+}
+
+const ChooseLocation: React.FC<NavigationProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <SearchInput />
@@ -37,6 +41,7 @@ export default ChooseLocation;
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,
+
     flex: 1,
   },
 

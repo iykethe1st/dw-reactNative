@@ -3,8 +3,13 @@ import { Animated, Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/Button";
 import { COLORS, ROUTES } from "../../constants";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 
-const CourierSearch = ({ navigation }) => {
+interface NavigationProps {
+  navigation: any;
+}
+
+const CourierSearch: React.FC<NavigationProps> = ({ navigation }) => {
   const animatedValueX = useRef(new Animated.Value(0)).current;
   const animatedValueY = useRef(new Animated.Value(0)).current;
 

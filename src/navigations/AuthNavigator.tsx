@@ -4,8 +4,6 @@ import { Login, ForgotPassword, Register } from "../screens";
 import { COLORS, ROUTES } from "../constants";
 import VerifyOTP from "../screens/auth/VerifyOTP";
 import ValidateOTP from "../screens/auth/ValidateOTP";
-import Home from "../screens/home/Home";
-import { BottomTabNavigator } from "./BottomTabNavigator";
 import { DrawerNavigator } from "./DrawerNavigator";
 import ChooseLocation from "../screens/home/ChooseLocation";
 import CourierSearch from "../screens/home/CourierSearch";
@@ -30,7 +28,6 @@ function AuthNavigator() {
         component={Login}
         options={{ headerShown: false }}
       />
-      {/* <Stack.Screen name={ROUTES.HOME} component={Home} /> */}
       <Stack.Screen name={ROUTES.VERIFY_OTP} component={VerifyOTP} />
       <Stack.Screen name={ROUTES.VALIDATE_OTP} component={ValidateOTP} />
       <Stack.Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />

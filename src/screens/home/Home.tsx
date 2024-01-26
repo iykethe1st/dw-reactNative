@@ -7,9 +7,11 @@ import Card from "../../components/Card";
 import List from "../../components/List";
 import { useNavigation } from "@react-navigation/native";
 
-const Home = ({ navigation }) => {
-  // const navigation = useNavigation();
+interface NavigationProps {
+  navigation: any;
+}
 
+const Home: React.FC<NavigationProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
