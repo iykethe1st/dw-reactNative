@@ -4,7 +4,11 @@ DashWash is a React Native mobile application that offers a convenient laundry s
 
 ## Screenshots
 
-<iframe src="https://giphy.com/embed/h0NR4ZXlmcQoMA5Vwr" width="222" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/h0NR4ZXlmcQoMA5Vwr">via GIPHY</a></p>
+
+https://github.com/iykethe1st/dw-reactNative/assets/69741500/dad7f3c1-8ef3-4c45-b448-0dc5cca81585
+
+
+
 
 ## Table of Contents
 
