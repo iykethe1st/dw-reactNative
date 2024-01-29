@@ -9,8 +9,11 @@ export default {
   ORDERS_TAB: "Orders Tab",
   ORDERS_DRAWER: "Orders Drawer",
 
+  WELCOME: "Welcome",
+
   CHOOSE_LOCATION: "Choose Location",
   COURIER_SEARCH: "Courier Search",
+  COURIER_DETAIL: "Courier Details",
 
   HOME: "Home",
   HOME_TAB: "Home Tab",

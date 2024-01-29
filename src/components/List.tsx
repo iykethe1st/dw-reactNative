@@ -1,4 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import {
   MaterialIcons,
@@ -18,6 +25,9 @@ interface ListProps {
   icon?: any;
   large?: boolean;
   iconLibrary?: string;
+  img?: boolean;
+  imgSrc?: ImageSourcePropType | undefined;
+  selectable?: boolean;
 }
 
 const List: React.FC<ListProps> = ({
@@ -30,6 +40,9 @@ const List: React.FC<ListProps> = ({
   icon,
   large,
   iconLibrary,
+  img,
+  imgSrc,
+  selectable,
 }) => {
   if (large)
     return (
@@ -41,6 +54,12 @@ const List: React.FC<ListProps> = ({
       >
         <View style={styles.largeWrapper}>
           <View style={styles.iconWrapper}>
+            {img && (
+              <Image
+                source={require("../../assets/images/me.jpg")}
+                style={styles.image}
+              />
+            )}
             {iconLibrary === "MaterialIcons" && (
               <MaterialIcons
                 name={icon}
@@ -115,11 +134,94 @@ const List: React.FC<ListProps> = ({
       </TouchableOpacity>
     );
 
+  if (selectable) {
+    return (
+      <View
+        style={[
+          styles.container,
+          theme === "dark" ? styles.dark : styles.light,
+        ]}
+      >
+        <View style={styles.iconWrapper}>
+          {img && <Image source={imgSrc} style={styles.image} />}
+          {iconLibrary === "MaterialIcons" && (
+            <MaterialIcons
+              name={icon}
+              size={24}
+              color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
+            />
+          )}
+
+          {iconLibrary === "MaterialCommunityIcons" && (
+            <MaterialCommunityIcons
+              style={styles.icon}
+              name={icon}
+              size={24}
+              color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
+            />
+          )}
+
+          {iconLibrary === "IonIcons" && (
+            <Ionicons
+              style={styles.icon}
+              name={icon}
+              size={24}
+              color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
+            />
+          )}
+
+          {iconLibrary === "FontAwesome" && (
+            <FontAwesome6
+              style={styles.icon}
+              name={icon}
+              size={24}
+              color={theme === "dark" ? "#DBF6F6" : COLORS.primary}
+            />
+          )}
+          <View style={styles.textWrapper}>
+            <Text
+              style={[
+                styles.labelOneText,
+                theme === "dark" ? styles.darkText : styles.lightText,
+              ]}
+            >
+              {labelOne}
+            </Text>
+            {labelTwo && (
+              <Text
+                style={[
+                  styles.text,
+                  theme === "dark" ? styles.labelTwoDark : styles.labelTwoLight,
+                ]}
+              >
+                {labelTwo}
+              </Text>
+            )}
+          </View>
+        </View>
+        {labelThree && (
+          <View>
+            <Text
+              style={
+                theme === "dark"
+                  ? styles.labelThreeLight
+                  : styles.labelThreeDark
+              }
+            >
+              {labelThree}
+            </Text>
+          </View>
+        )}
+      </View>
+    );
+  }
+
   return (
     <TouchableOpacity
       style={[styles.container, theme === "dark" ? styles.dark : styles.light]}
     >
       <View style={styles.iconWrapper}>
+        {img && <Image source={imgSrc} style={styles.image} />}
         {iconLibrary === "MaterialIcons" && (
           <MaterialIcons
             name={icon}
@@ -227,6 +329,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 4,
     paddingHorizontal: 5,
+  },
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 60 / 2,
+    borderWidth: 2,
+    borderColor: COLORS.primary,
   },
   textWrapper: {
     gap: 2,

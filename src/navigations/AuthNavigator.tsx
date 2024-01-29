@@ -7,10 +7,16 @@ import ValidateOTP from "../screens/auth/ValidateOTP";
 import { DrawerNavigator } from "./DrawerNavigator";
 import ChooseLocation from "../screens/home/ChooseLocation";
 import CourierSearch from "../screens/home/CourierSearch";
+import CourierDetail from "../screens/home/CourierDetail";
+import Slider from "../components/Slider";
+import WelcomeSlides from "../data";
+import { useNavigation } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
 
 function AuthNavigator() {
+  const navigation = useNavigation();
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -21,7 +27,7 @@ function AuthNavigator() {
         },
         // title: routes.params.phoneNumber
       }}
-      initialRouteName={ROUTES.LOGIN}
+      initialRouteName={ROUTES.WELCOME}
     >
       <Stack.Screen
         name={ROUTES.LOGIN}
@@ -29,6 +35,16 @@ function AuthNavigator() {
         options={{ headerShown: false }}
       />
       <Stack.Screen name={ROUTES.VERIFY_OTP} component={VerifyOTP} />
+
+      <Stack.Screen name={ROUTES.WELCOME}>
+        {(props) => (
+          <Slider
+            slides={WelcomeSlides}
+            onPress={() => navigation.navigate(ROUTES.LOGIN)}
+          />
+        )}
+      </Stack.Screen>
+
       <Stack.Screen name={ROUTES.VALIDATE_OTP} component={ValidateOTP} />
       <Stack.Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
       <Stack.Screen name={ROUTES.REGISTER} component={Register} />
@@ -42,6 +58,12 @@ function AuthNavigator() {
         options={{ headerShown: false }}
         name={ROUTES.COURIER_SEARCH}
         component={CourierSearch}
+      />
+
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name={ROUTES.COURIER_DETAIL}
+        component={CourierDetail}
       />
     </Stack.Navigator>
   );

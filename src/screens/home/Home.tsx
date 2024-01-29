@@ -54,8 +54,8 @@ const Home: React.FC<NavigationProps> = ({ navigation }) => {
           <List
             icon="washing-machine-alert"
             theme="light"
-            labelOne="DW-78479302"
-            labelThree="22 Hours left"
+            labelOne="DW-78428310"
+            labelThree="30 mins left"
             iconLibrary="MaterialCommunityIcons"
           />
         </View>
@@ -66,7 +66,7 @@ const Home: React.FC<NavigationProps> = ({ navigation }) => {
             icon="washing-machine-alert"
             theme="light"
             labelOne="DW-78479302"
-            labelThree="22 Hours left"
+            labelThree="16 Hours left"
             iconLibrary="MaterialCommunityIcons"
           />
         </View>

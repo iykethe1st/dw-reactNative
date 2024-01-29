@@ -32,6 +32,12 @@ const CourierSearch: React.FC<NavigationProps> = ({ navigation }) => {
 
   useEffect(() => {
     moveImage();
+
+    const timeoutId = setTimeout(() => {
+      navigation.navigate(ROUTES.COURIER_DETAIL);
+    }, 5000);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   const translateX = animatedValueX.interpolate({

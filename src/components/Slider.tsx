@@ -14,9 +14,10 @@ import { OnBoard } from "../types";
 
 interface SliderProps {
   slides: OnBoard[];
+  onPress?: () => void;
 }
 
-const Slider: React.FC<SliderProps> = ({ slides }) => {
+const Slider: React.FC<SliderProps> = ({ slides, onPress }) => {
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
 
@@ -62,6 +63,7 @@ const Slider: React.FC<SliderProps> = ({ slides }) => {
       <Pagination data={slides} scrollX={scrollX} currentIndex={index} />
 
       <Button
+        onPress={onPress}
         label={index === slides.length - 1 ? "Get started" : "Next"}
         theme="dark"
         type="large"
