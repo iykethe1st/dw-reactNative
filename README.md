@@ -1,4 +1,4 @@
-# DashWash
+# DashWash Mobile App
 
 DashWash is a React Native mobile application that offers a convenient laundry service, allowing users to book laundry pickups, and have their clothes delivered after cleaning.
 
