@@ -27,7 +27,7 @@ const SlideItem = ({ item }) => {
         <Text style={styles.description}>{item.description}</Text>
       </View>
       <Animated.Image
-        source={item.img}
+        source={item.image}
         resizeMode="contain"
         style={[
           styles.image,

@@ -4,6 +4,23 @@ import { COLORS } from "../../constants";
 import Button from "../../components/Button";
 import List from "../../components/List";
 
+const DATA = [
+  {
+    labelOne: "Feedback",
+    icon: "message",
+  },
+  {
+    labelOne: "Contact support",
+    icon: "contact-support",
+  },
+  {
+    labelOne: "Sign out",
+    icon: "logout",
+  },
+];
+
+const USERDATA = [{ name: "Ikenna Udemezue", number: "+070 12345678" }];
+
 const Profile = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -12,8 +29,8 @@ const Profile = () => {
           style={styles.profileImage}
           source={require("../../../assets/images/me.jpg")}
         />
-        <Text style={styles.nameText}>Ikenna Udemezue</Text>
-        <Text style={styles.numberText}>+070 12345678</Text>
+        <Text style={styles.nameText}>{USERDATA[0].name}</Text>
+        <Text style={styles.numberText}>{USERDATA[0].number}</Text>
       </View>
 
       <View style={styles.editWrapper}>
@@ -22,23 +39,10 @@ const Profile = () => {
 
       <View style={styles.actionWrapper}>
         <List
+          data={DATA}
           icon="message"
           theme="light"
-          labelOne="Feedback"
-          iconLibrary="FontAwesome"
-        />
-
-        <List
-          icon="contact-support"
-          theme="light"
-          labelOne="Contact support"
           iconLibrary="MaterialIcons"
-        />
-        <List
-          icon="log-out-outline"
-          theme="light"
-          labelOne="Sign out"
-          iconLibrary="IonIcons"
         />
       </View>
     </SafeAreaView>

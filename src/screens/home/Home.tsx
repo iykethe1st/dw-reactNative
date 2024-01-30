@@ -11,6 +11,34 @@ interface NavigationProps {
   navigation: any;
 }
 
+const ONGOING_DATA = [
+  {
+    labelOne: "DW-78428310",
+    labelThree: "30 mins left",
+  },
+
+  {
+    labelOne: "DW-78479302",
+    labelThree: "16 Hrs left",
+  },
+];
+
+const COMPLETED_DATA = [
+  {
+    labelOne: "DW-78428310",
+    labelThree: "30 mins left",
+  },
+
+  {
+    labelOne: "DW-78479302",
+    labelThree: "16 Hrs left",
+  },
+];
+
+const LOCATION = [
+  { labelOne: "Current Location", labelTwo: "Paradise city Layout, Enugu" },
+];
+
 const Home: React.FC<NavigationProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -24,8 +52,7 @@ const Home: React.FC<NavigationProps> = ({ navigation }) => {
           <List
             icon="my-location"
             theme="dark"
-            labelOne="Current Location"
-            labelTwo="Paradise city Layout, Enugu"
+            data={LOCATION}
             iconLibrary="MaterialIcons"
           />
         </View>
@@ -54,8 +81,7 @@ const Home: React.FC<NavigationProps> = ({ navigation }) => {
           <List
             icon="washing-machine-alert"
             theme="light"
-            labelOne="DW-78428310"
-            labelThree="30 mins left"
+            data={ONGOING_DATA}
             iconLibrary="MaterialCommunityIcons"
           />
         </View>
@@ -65,8 +91,7 @@ const Home: React.FC<NavigationProps> = ({ navigation }) => {
           <List
             icon="washing-machine-alert"
             theme="light"
-            labelOne="DW-78479302"
-            labelThree="16 Hours left"
+            data={COMPLETED_DATA}
             iconLibrary="MaterialCommunityIcons"
           />
         </View>

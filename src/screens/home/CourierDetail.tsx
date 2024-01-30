@@ -8,6 +8,15 @@ interface CourierDetailProps {
   navigation: any;
 }
 
+const DATA = [
+  {
+    labelOne: "John Dovy",
+    labelTwo: "Courier Id: DC-64672",
+    imgSrc: require("../../../assets/images/me.jpg"),
+    img: true,
+  },
+];
+
 const CourierDetail: React.FC<CourierDetailProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -20,13 +29,7 @@ const CourierDetail: React.FC<CourierDetailProps> = ({ navigation }) => {
         </View>
 
         <View style={styles.detailsWrapper}>
-          <List
-            theme="light"
-            labelOne="John Dovy"
-            labelTwo="Courier Id: DC-64672"
-            imgSrc={require("../../../assets/images/me.jpg")}
-            img={true}
-          />
+          <List data={DATA} theme="light" />
           <Text style={styles.time}>Arrives in 5 mins</Text>
         </View>
       </View>

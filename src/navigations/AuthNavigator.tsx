@@ -36,7 +36,13 @@ function AuthNavigator() {
       />
       <Stack.Screen name={ROUTES.VERIFY_OTP} component={VerifyOTP} />
 
-      <Stack.Screen name={ROUTES.WELCOME}>
+      <Stack.Screen
+        name={ROUTES.WELCOME}
+        options={{
+          headerShown: false,
+          cardStyle: { backgroundColor: "white" },
+        }}
+      >
         {(props) => (
           <Slider
             slides={WelcomeSlides}

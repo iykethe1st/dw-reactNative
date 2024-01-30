@@ -4,6 +4,15 @@ import { COLORS } from "../../constants";
 import List from "../../components/List";
 import { ScrollView } from "react-native-gesture-handler";
 
+const ORDERS = [
+  {
+    labelOne: "Wash & Iron",
+    labelTwo: "Paradise City Layout Enugu",
+    labelFour: "Completed",
+    labelFive: "₦2,500",
+  },
+];
+
 const Orders = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -16,10 +25,7 @@ const Orders = () => {
           <Text style={styles.dateWrapper}>Today</Text>
           <List
             theme="light"
-            labelOne="Wash & Iron"
-            labelTwo="Paradise City Layout Enugu"
-            labelFour="Completed"
-            labelFive="₦2,500"
+            data={ORDERS}
             icon="washing-machine"
             large
             iconLibrary="MaterialCommunityIcons"

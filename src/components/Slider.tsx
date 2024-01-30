@@ -62,12 +62,14 @@ const Slider: React.FC<SliderProps> = ({ slides, onPress }) => {
 
       <Pagination data={slides} scrollX={scrollX} currentIndex={index} />
 
-      <Button
-        onPress={onPress}
-        label={index === slides.length - 1 ? "Get started" : "Next"}
-        theme="dark"
-        type="large"
-      />
+      {index === slides.length - 1 ? (
+        <Button
+          onPress={onPress}
+          label={"Get started"}
+          theme="dark"
+          type="large"
+        />
+      ) : null}
     </View>
   );
 };
@@ -77,5 +79,8 @@ export default Slider;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 30,
   },
 });
