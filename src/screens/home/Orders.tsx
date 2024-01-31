@@ -7,10 +7,10 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { COLORS } from "../../constants";
+import { COLORS, ROUTES } from "../../constants";
 import List from "../../components/List";
 
-const Orders = () => {
+const Orders = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -29,6 +29,7 @@ const Orders = () => {
             icon="washing-machine"
             large
             iconLibrary="MaterialCommunityIcons"
+            onPress={() => navigation.navigate(ROUTES.LAUNDRY_DETAILS)}
           />
         </View>
       </ScrollView>

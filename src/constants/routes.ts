@@ -4,6 +4,7 @@ export default {
   FORGOT_PASSWORD: "Forgot Password",
   VERIFY_OTP: "Verify OTP",
   VALIDATE_OTP: "Validate OTP",
+  LAUNDRY_DETAILS: "Laundry Details",
 
   ORDERS: "Orders",
   ORDERS_TAB: "Orders Tab",

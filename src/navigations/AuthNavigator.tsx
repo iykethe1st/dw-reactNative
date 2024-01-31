@@ -11,6 +11,7 @@ import CourierDetail from "../screens/home/CourierDetail";
 import Slider from "../components/Slider";
 import WelcomeSlides from "../data";
 import { useNavigation } from "@react-navigation/native";
+import LaundryDetails from "../screens/home/LaundryDetails";
 
 const Stack = createStackNavigator();
 
@@ -70,6 +71,12 @@ function AuthNavigator() {
         options={{ headerShown: false }}
         name={ROUTES.COURIER_DETAIL}
         component={CourierDetail}
+      />
+
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name={ROUTES.LAUNDRY_DETAILS}
+        component={LaundryDetails}
       />
     </Stack.Navigator>
   );

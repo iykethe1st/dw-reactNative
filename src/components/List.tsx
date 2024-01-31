@@ -28,6 +28,7 @@ interface ListProps {
   img?: boolean;
   imgSrc?: ImageSourcePropType | undefined;
   selectable?: boolean;
+  onPress?: () => void;
 }
 
 const List: React.FC<ListProps> = ({
@@ -43,6 +44,7 @@ const List: React.FC<ListProps> = ({
   img,
   imgSrc,
   selectable,
+  onPress,
 }) => {
   if (large)
     return (
@@ -51,6 +53,7 @@ const List: React.FC<ListProps> = ({
           styles.largeContainer,
           theme === "dark" ? styles.dark : styles.light,
         ]}
+        onPress={onPress}
       >
         <View style={styles.largeWrapper}>
           <View style={styles.iconWrapper}>
