@@ -4,10 +4,6 @@ import { COLORS } from "../../constants";
 import List from "../../components/List";
 import { ScrollView } from "react-native-gesture-handler";
 
-const NOTIFICATIONS = [
-  { labelOne: "Your laundry is on the way!", labelThree: "3:00 PM" },
-];
-
 const Notifications = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -17,7 +13,8 @@ const Notifications = () => {
           <List
             icon="checkmark-done-circle"
             theme="light"
-            data={NOTIFICATIONS}
+            labelOne="Your laundry is on the way!"
+            labelThree="3:00 PM"
             iconLibrary="IonIcons"
           />
         </View>

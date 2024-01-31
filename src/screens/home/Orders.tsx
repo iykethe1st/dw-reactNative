@@ -1,17 +1,14 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React from "react";
 import { COLORS } from "../../constants";
 import List from "../../components/List";
-import { ScrollView } from "react-native-gesture-handler";
-
-const ORDERS = [
-  {
-    labelOne: "Wash & Iron",
-    labelTwo: "Paradise City Layout Enugu",
-    labelFour: "Completed",
-    labelFive: "₦2,500",
-  },
-];
 
 const Orders = () => {
   return (
@@ -25,7 +22,10 @@ const Orders = () => {
           <Text style={styles.dateWrapper}>Today</Text>
           <List
             theme="light"
-            data={ORDERS}
+            labelOne="Wash & Iron"
+            labelTwo="Paradise City Layout Enugu"
+            labelFour="Completed"
+            labelFive="₦2,500"
             icon="washing-machine"
             large
             iconLibrary="MaterialCommunityIcons"
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,
     marginBottom: 100,
+    flex: 1,
   },
   searchInput: {
     marginVertical: 10,
