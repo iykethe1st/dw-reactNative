@@ -9,13 +9,6 @@ interface NavigationProps {
   navigation: any;
 }
 
-const DATA = [
-  {
-    labelOne: "Enugu, Nigeria",
-    labelTwo: "11 Cetenary layout",
-  },
-];
-
 const ChooseLocation: React.FC<NavigationProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -23,8 +16,9 @@ const ChooseLocation: React.FC<NavigationProps> = ({ navigation }) => {
       <View style={styles.locationWrapper}>
         <Text style={styles.locationTitle}>Saved Location</Text>
         <List
-          data={DATA}
           theme="light"
+          labelOne="Enugu, Nigeria"
+          labelTwo="11 Cetenary layout"
           icon="location-arrow"
           iconLibrary="FontAwesome"
         />
